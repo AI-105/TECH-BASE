@@ -14,6 +14,15 @@
     $pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
     //ATTR_ERRMODEはエラー時の対応。SILENT(報告なし、デフォ)、EXCEPTION(スルー)、WARNING(警告)の三種類ある
     //DBに接続
+    $sql = "CREATE TABLE IF NOT EXISTS DB"
+        . " ("
+        . "id INT AUTO_INCREMENT PRIMARY KEY,"
+        . "name char(32),"
+        . "comment TEXT,"
+        . "date TEXT,"
+        . "pass TEXT"
+        . ");";
+    $stmt = $pdo->query($sql);
     if (!empty($_POST["sub1"])) {
         //$_POST時はif(!empty($_POST[]))をしないと初回アクセスの際変数が未定義とエラー吐かれる
         $comment = $_POST["comment"];
