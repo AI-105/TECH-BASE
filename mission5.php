@@ -23,6 +23,7 @@
         . "pass TEXT"
         . ");";
     $stmt = $pdo->query($sql);
+    //テーブルの作成
     if (!empty($_POST["sub1"])) {
         //$_POST時はif(!empty($_POST[]))をしないと初回アクセスの際変数が未定義とエラー吐かれる
         $comment = $_POST["comment"];
